@@ -1,5 +1,6 @@
 import sys
 
+from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QHBoxLayout,
                                QVBoxLayout, QLabel, QFileDialog, QSpinBox, 
                                QGroupBox, QFormLayout, QLineEdit, 
@@ -22,6 +23,7 @@ class PDF_Parser_App(QMainWindow):
         col1_layout: QVBoxLayout = QVBoxLayout()
 
         self.pdf_label: QLabel = QLabel("Preview Image")
+        col1_layout.addWidget(self.pdf_label)
         self.test_button = QPushButton("test")
         col1_layout.addWidget(self.test_button)
 

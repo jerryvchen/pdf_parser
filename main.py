@@ -8,20 +8,23 @@ Converts a PDF into a database (csv).
 :email: jerryvc@uci.edu
 """
 
-from pdf_reader import get_pages
+from pdf_reader import get_images
 from ocr_processing import perform_ocr
 from text_parser import parse_text
 from exporter import export_to_csv
 
 
 
-FILE_PATH: str = ".\sample_pdfs\Neonatologists_USA_1996_Directory[1953].pdf" # path to the PDF file
+FILE_PATH: str = """.\sample_pdfs\\Neonatologists_USA_1996_Directory[1953].pdf""" 
+# """.\sample_pdfs\\Neonatologists_USA_2011_Directory[1954].pdf"""
 START_PAGE: int = 11
 END_PAGE: int = 11
+PATTERN: str = ""
 
 def main() -> None:
-    for page in get_pages(FILE_PATH, start = START_PAGE, end = END_PAGE):
-        pass
+    for image in get_images(FILE_PATH, start=START_PAGE, end=END_PAGE + 1):
+        text: str = perform_ocr(image)
+        print(text)
 
 if __name__ == "__main__":
     main()

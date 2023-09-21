@@ -12,6 +12,7 @@ from pdfplumber.page import Page
 from pathlib import Path
 from typing import Iterator
 
+
 def get_pages(file_path: Path, start: int = 0, end: int = None) -> Iterator[Page]:
     """
     Continually yields pages given the PDF path and the start and end page (inclusive).

@@ -24,7 +24,8 @@ PATTERN: str = ""
 def main() -> None:
     for image in get_images(FILE_PATH, start=START_PAGE, end=END_PAGE + 1):
         text: str = perform_ocr(image)
-        print(text)
+        parsed_data = parse_text(text)
+        export_to_csv(parsed_data)
 
 if __name__ == "__main__":
     main()
